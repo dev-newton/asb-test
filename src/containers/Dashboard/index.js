@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Breadcrumb from "../../components/Breadcrumb";
 import Card from "../../components/Card";
 import ContactCard from "../../components/ContactCard";
-import { CardSubtitle } from "reactstrap";
+import Trail from "../../components/Trail";
 
 export default function Dashboard() {
   return (
@@ -15,8 +15,11 @@ export default function Dashboard() {
         <Card className="col-2" number="635" text="Failed metric" />
         <Card className="col-2" number="11334" text="Pending metric" />
       </div>
-      <div className="row">
+      <div className="row" style={{ marginBottom: 24 }}>
         <ContactCard className="col-2" />
+      </div>
+      <div className="row">
+        <Trail className="col-2" />
       </div>
     </div>
   );
