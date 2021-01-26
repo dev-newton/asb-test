@@ -50,3 +50,73 @@ body {
 .text-color {
   color: #778699;
 }
+
+.card-style {
+  background: #ffffff;
+  box-shadow: 0px 4px 30px rgba(192, 192, 192, 0.25);
+  border-radius: 6px;
+  width: 258px;
+  height: 129px;
+  margin-left: 15px;
+  margin-right: 10px;
+}
+
+.number-style {
+  font-family: ProductSans-Regular;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 44px;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.44px;
+  color: #19191d;
+  padding-top: 24px;
+}
+
+.number-text-style {
+  font-weight: 700;
+  color: #9696a0;
+}
+
+.info-style {
+  margin-bottom: 40px;
+}
+
+.info {
+  cursor: pointer;
+}
+
+.contact-card-style {
+  background: #ffffff;
+  box-shadow: 0px 4px 30px rgba(192, 192, 192, 0.25);
+  border-radius: 6px;
+  width: 258px;
+  height: 300px;
+  margin-left: 15px;
+  margin-right: 10px;
+  padding-top: 10px;
+}
+
+.contact-header-text {
+  font-family: ProductSans-Regular;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  display: flex;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  color: #000;
+}
+
+.contact-text {
+  font-family: ProductSans-Regular;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  color: #0f1a4f;
+  margin-bottom: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 5px;
+}
