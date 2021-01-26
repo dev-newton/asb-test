@@ -2,9 +2,9 @@ body {
   font-family: ProductSans-Regular;
 }
 
-/* .App {
-  text-align: center;
-} */
+.App {
+  /* text-align: center; */
+}
 
 @font-face {
   font-family: ProductSans-Regular;
@@ -45,4 +45,8 @@ body {
   margin-top: 3px;
   border-bottom: 4px solid #006fd6;
   padding: 22px;
+}
+
+.text-color {
+  color: #778699;
 }
