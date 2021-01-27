@@ -19,6 +19,11 @@ export default function Dashboard() {
   const [loadingModuleHistory, setLoadingModuleHistory] = useState(false);
   const [loadingTableData, setLoadingTableData] = useState(false);
 
+  const [errorDivisionSummary, setErrorDivisionSummary] = useState(null);
+  const [errorMetrics, setErrorMetrics] = useState(null);
+  const [errorModuleHistory, setErrorModuleHistory] = useState(null);
+  const [errorTableData, setErrorTableData] = useState(null);
+
   const [divisionSummary, setDivisionSummary] = useState({});
   const [metrics, setMetrics] = useState({});
   const [moduleHistory, setModuleHistory] = useState([]);
@@ -61,6 +66,7 @@ export default function Dashboard() {
       setLoadingDivisionSummary(false);
     } catch (error) {
       setLoadingDivisionSummary(false);
+      setErrorDivisionSummary([error.response]);
       console.log("failed", error.response);
     }
   };
@@ -72,6 +78,7 @@ export default function Dashboard() {
       setLoadingMetrics(false);
     } catch (error) {
       setLoadingMetrics(false);
+      setErrorMetrics([error.response]);
       console.log("failed", error.response);
     }
   };
@@ -83,6 +90,7 @@ export default function Dashboard() {
       setLoadingModuleHistory(false);
     } catch (error) {
       setLoadingModuleHistory(false);
+      setErrorModuleHistory([error.response]);
       console.log("failed", error.response);
     }
   };
@@ -94,6 +102,7 @@ export default function Dashboard() {
       setLoadingTableData(false);
     } catch (error) {
       setLoadingTableData(false);
+      setErrorTableData([error.response]);
       console.log("failed", error.response);
     }
   };
@@ -102,13 +111,38 @@ export default function Dashboard() {
     loadingDivisionSummary &&
     loadingMetrics &&
     loadingModuleHistory &&
-    tableData;
+    loadingTableData;
+
+  const errors =
+    errorDivisionSummary ||
+    errorMetrics ||
+    errorModuleHistory ||
+    errorTableData;
 
   const { ongoing, past, missed, failed, pending } = metrics;
 
   return (
     <div>
-      {loading ? (
+      {errors ? (
+        <div
+          style={{ marginTop: "4%" }}
+          class="alert alert-danger offset-3 col-6"
+          role="alert"
+        >
+          <h4 class="alert-heading">Error: {errors[0].statusText} </h4>
+          <hr />
+          <p class="mb-0">
+            Try and{" "}
+            <a
+              style={{ cursor: "pointer", textDecoration: "underline" }}
+              onClick={() => window.location.reload()}
+            >
+              <b>reload the page</b>
+            </a>{" "}
+            in a few seconds and you should be fine.
+          </p>
+        </div>
+      ) : loading ? (
         <i
           style={{
             marginLeft: "50%",
@@ -130,10 +164,12 @@ export default function Dashboard() {
           </div>
           <div className="row" style={{ marginBottom: 24 }}>
             <div>
-              <ContactCard
-                divisionSummary={divisionSummary}
-                className="col-2"
-              />
+              {
+                <ContactCard
+                  divisionSummary={divisionSummary}
+                  className="col-2"
+                />
+              }
 
               <Trail moduleHistory={moduleHistory} />
             </div>

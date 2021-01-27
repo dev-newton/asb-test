@@ -88,7 +88,6 @@ export default function DataTable({ tableData }) {
 
   return (
     <div className="table-container">
-      {console.log(tableData)}
       <table className="table table-style">
         <thead className="thead-light">
           <tr>
