@@ -6,32 +6,53 @@ import Trail from "../../components/Trail";
 import DataTable from "../../components/DataTable";
 
 import { useDispatch, useSelector } from "react-redux";
-import { getDivisionSummary, getMetrics } from "../../store/actions/asb";
+import {
+  getDivisionSummary,
+  getMetrics,
+  getModuleHistory,
+  getTableData,
+} from "../../store/actions/asb";
 
 export default function Dashboard() {
   const [loadingDivisionSummary, setLoadingDivisionSummary] = useState(false);
   const [loadingMetrics, setLoadingMetrics] = useState(false);
+  const [loadingModuleHistory, setLoadingModuleHistory] = useState(false);
+  const [loadingTableData, setLoadingTableData] = useState(false);
 
   const [divisionSummary, setDivisionSummary] = useState({});
   const [metrics, setMetrics] = useState({});
+  const [moduleHistory, setModuleHistory] = useState([]);
+  const [tableData, setTableData] = useState([]);
 
   const division_summary_result = useSelector(
     (state) => state.asb.division_summary
   );
-
   const metrics_result = useSelector((state) => state.asb.metrics);
+  const module_history_result = useSelector(
+    (state) => state.asb.module_history
+  );
+  const table_data_result = useSelector((state) => state.asb.table_data);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     fetchDivisionSummary();
     fetchMetrics();
+    fetchModuleHistory();
+    fetchTableData();
   }, []);
 
   useEffect(() => {
     setDivisionSummary(division_summary_result);
     setMetrics(metrics_result);
-  }, [division_summary_result, metrics_result]);
+    setModuleHistory(module_history_result);
+    setTableData(table_data_result);
+  }, [
+    division_summary_result,
+    metrics_result,
+    module_history_result,
+    table_data_result,
+  ]);
 
   const fetchDivisionSummary = async () => {
     setLoadingDivisionSummary(true);
@@ -55,7 +76,33 @@ export default function Dashboard() {
     }
   };
 
-  const loading = loadingDivisionSummary && loadingMetrics;
+  const fetchModuleHistory = async () => {
+    setLoadingModuleHistory(true);
+    try {
+      await dispatch(getModuleHistory());
+      setLoadingModuleHistory(false);
+    } catch (error) {
+      setLoadingModuleHistory(false);
+      console.log("failed", error.response);
+    }
+  };
+
+  const fetchTableData = async () => {
+    setLoadingTableData(true);
+    try {
+      await dispatch(getTableData());
+      setLoadingTableData(false);
+    } catch (error) {
+      setLoadingTableData(false);
+      console.log("failed", error.response);
+    }
+  };
+
+  const loading =
+    loadingDivisionSummary &&
+    loadingMetrics &&
+    loadingModuleHistory &&
+    tableData;
 
   const { ongoing, past, missed, failed, pending } = metrics;
 
@@ -88,9 +135,9 @@ export default function Dashboard() {
                 className="col-2"
               />
 
-              <Trail />
+              <Trail moduleHistory={moduleHistory} />
             </div>
-            <DataTable className="col-8" />
+            <DataTable tableData={tableData} className="col-8" />
           </div>
         </div>
       )}

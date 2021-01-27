@@ -195,10 +195,25 @@ body {
   background-color: #f6f3ff;
   color: #8c70ff;
   text-align: center;
-  width: 100px;
+  width: 140px;
   font-size: 14px;
   font-weight: 500;
   padding: 3px 5px;
+}
+
+.status-style-2 {
+  border-radius: 11px;
+  background-color: #fff6de;
+  color: #f4b400;
+  text-align: center;
+  width: 140px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 3px 5px;
+}
+
+.text-2 {
+  text-transform: initial;
 }
 
 .entries-style {

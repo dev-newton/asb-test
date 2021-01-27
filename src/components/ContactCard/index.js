@@ -1,7 +1,6 @@
 import React from "react";
 import ContactCardHeader from "../../components/ContactCardHeader";
 import ContactCardBody from "../../components/ContactCardBody";
-import Trail from "../../components/Trail";
 
 import chess from "../../assets/images/Icon.png";
 import call from "../../assets/images/Vector.png";

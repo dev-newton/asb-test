@@ -2,12 +2,14 @@ import {
   GET_DIVISION_SUMMARY,
   GET_METRICS,
   GET_MODULE_HISTORY,
+  GET_TABLE_DATA,
 } from "../actions/types";
 
 const initialState = {
   division_summary: {},
   metrics: {},
   module_history: [],
+  table_data: [],
 };
 
 export default (state = initialState, action) => {
@@ -27,7 +29,11 @@ export default (state = initialState, action) => {
         ...state,
         module_history: action.payload,
       };
-
+    case GET_TABLE_DATA:
+      return {
+        ...state,
+        table_data: action.payload,
+      };
     default:
       return state;
   }

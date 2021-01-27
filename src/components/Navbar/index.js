@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import logo from "../../assets/images/logo_bw.png";
 import bell from "../../assets/images/Shape.png";
 import home from "../../assets/images/home.png";
