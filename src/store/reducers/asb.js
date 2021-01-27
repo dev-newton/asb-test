@@ -1,7 +1,13 @@
-import { GET_DIVISION_SUMMARY } from "../actions/types";
+import {
+  GET_DIVISION_SUMMARY,
+  GET_METRICS,
+  GET_MODULE_HISTORY,
+} from "../actions/types";
 
 const initialState = {
   division_summary: {},
+  metrics: {},
+  module_history: [],
 };
 
 export default (state = initialState, action) => {
@@ -11,9 +17,18 @@ export default (state = initialState, action) => {
         ...state,
         division_summary: action.payload,
       };
+    case GET_METRICS:
+      return {
+        ...state,
+        metrics: action.payload,
+      };
+    case GET_MODULE_HISTORY:
+      return {
+        ...state,
+        module_history: action.payload,
+      };
 
     default:
       return state;
   }
-  //  return state;
 };
