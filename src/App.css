@@ -127,6 +127,7 @@ body {
   margin-left: 15px;
   margin-right: 10px;
   padding-top: 10px;
+  margin-top: 29px;
 }
 
 .trail-header-text {
@@ -138,4 +139,88 @@ body {
   margin-top: 5px;
   margin-bottom: 0px;
   color: #000;
+}
+
+.table-container {
+  width: 77.3%;
+  margin-left: 16px;
+}
+
+.table-style {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  box-shadow: 0px 4px 30px rgba(192, 192, 192, 0.25);
+}
+
+.table .thead-light th {
+  border: none;
+  color: #899198;
+  background-color: #f3f6f9;
+}
+
+.table td,
+.table th {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: none;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.checkbox-style {
+  /* position: absolute;
+  left: 343px; */
+  margin-left: 30px;
+}
+
+.name-style {
+  font-size: 14px;
+  color: #25213b;
+}
+
+.location-one-style {
+  margin: 0;
+  color: #25213b;
+}
+
+.location-two-style {
+  margin: 5px 0;
+  font-size: 12px;
+  color: #878592;
+}
+
+.status-style {
+  border-radius: 11px;
+  background-color: #f6f3ff;
+  color: #8c70ff;
+  text-align: center;
+  width: 100px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 3px 5px;
+}
+
+.entries-style {
+  margin: 0;
+  color: #25213b;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.entries-icon-style {
+  font-size: 6px;
+  margin-right: 5px;
+}
+
+.entries-style-2 {
+  margin: 5px 0;
+  font-size: 12px;
+  color: #878592;
+}
+
+.risk-style {
+  font-size: 14px;
+  color: #3ab65c;
+  font-weight: 500;
 }

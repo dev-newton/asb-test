@@ -3,6 +3,7 @@ import Breadcrumb from "../../components/Breadcrumb";
 import Card from "../../components/Card";
 import ContactCard from "../../components/ContactCard";
 import Trail from "../../components/Trail";
+import DataTable from "../../components/DataTable";
 
 export default function Dashboard() {
   return (
@@ -16,11 +17,13 @@ export default function Dashboard() {
         <Card className="col-2" number="11334" text="Pending metric" />
       </div>
       <div className="row" style={{ marginBottom: 24 }}>
-        <ContactCard className="col-2" />
+        <div>
+          <ContactCard className="col-2" />
+          <Trail />
+        </div>
+        <DataTable className="col-8" />
       </div>
-      <div className="row">
-        <Trail className="col-2" />
-      </div>
+      {/* <div className="row"></div> */}
     </div>
   );
 }

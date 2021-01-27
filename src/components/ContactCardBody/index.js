@@ -7,6 +7,7 @@ export default function ContactCardBody({
   textStyle1,
   iconStyle,
   cardBody,
+  iconText2,
 }) {
   return (
     <>
@@ -34,9 +35,10 @@ export default function ContactCardBody({
               marginTop: -15,
               fontSize: 12,
               color: "#A1AACE",
+              marginBottom: 0,
             }}
           >
-            22:10 15/09/2020
+            {iconText2}
           </p>
         )}
       </div>

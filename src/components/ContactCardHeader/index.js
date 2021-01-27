@@ -10,9 +10,10 @@ export default function ContactCardHeader({ icon, iconText }) {
           height="31"
           class="d-inline-block align-top"
           alt=""
+          style={{ margin: 0 }}
         />
       </div>
-      <div className="col-10 contact-header-text">
+      <div className="col-10 contact-header-text" style={{ margin: 0 }}>
         <p>{iconText}</p>
       </div>
     </>

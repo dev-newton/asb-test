@@ -1,6 +1,7 @@
 import React from "react";
 import ContactCardHeader from "../../components/ContactCardHeader";
 import ContactCardBody from "../../components/ContactCardBody";
+import Trail from "../../components/Trail";
 
 import chess from "../../assets/images/Icon.png";
 import phone from "../../assets/images/Vector.png";
@@ -22,6 +23,8 @@ export default function ContactCard() {
         textStyle={{ color: "#5771EE", textDecoration: "underline" }}
       />
       <ContactCardBody icon={print} iconText="24 fingerprints enrolled" />
+
+      {/* <Trail /> */}
     </div>
   );
 }
